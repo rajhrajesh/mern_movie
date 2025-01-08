@@ -25,10 +25,10 @@ app.use(cookieParser());
 app.use(express.json());
 
 
-app.use('/api/users', userRoutes);
-app.use('/api/movies', authenticateToken, movieRoutes);
-app.use('/api/tv', authenticateToken, tvRoutes);
-app.use('/api/search', authenticateToken, searchRoutes);
+app.use('/api/v1/users', userRoutes);
+app.use('/api/v1/movies', authenticateToken, movieRoutes);
+app.use('/api/v1/tv', authenticateToken, tvRoutes);
+app.use('/api/v1/search', authenticateToken, searchRoutes);
 
 
 app.listen(port, () => {
