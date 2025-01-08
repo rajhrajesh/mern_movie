@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const userRoutes = require('./routes/userRoutes');
 const movieRoutes = require('./routes/movieRoutes');
 const tvRoutes = require('./routes/movieRoutes');
+const searchRoutes = require('./routes/searchRoutes');
 
 // Connect to MongoDB database
 const connectDatabase = require('./config/dbConnection');
@@ -27,6 +28,7 @@ app.use(express.json());
 app.use('/api/users', userRoutes);
 app.use('/api/movies', authenticateToken, movieRoutes);
 app.use('/api/tv', authenticateToken, tvRoutes);
+app.use('/api/search', authenticateToken, searchRoutes);
 
 
 app.listen(port, () => {

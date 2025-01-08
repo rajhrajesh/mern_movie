@@ -20,8 +20,10 @@ const userSchema = mongoose.Schema({
         default: ''
     },
     searchHistory: {
-        type: [String]
-    },
+		type: Array,
+		default: [],
+	},
+
 })
 
 const User = mongoose.model('User', userSchema);
