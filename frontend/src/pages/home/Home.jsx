@@ -3,7 +3,7 @@ import HomeScreen from './HomeScreen';
 import AuthScreen from './AuthScreen';
 
 function Home() {
-  const user = [];
+  const user = null;
   return (
     <div className=''>
       {user ? <HomeScreen/> : <AuthScreen/>}
