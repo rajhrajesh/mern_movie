@@ -74,7 +74,8 @@ const createLogin = asyncHandler(async (req, res) => {
         sameSite: 'strict',
     });
 
-    res.status(200).json({token, user_credentials: {id: user._id, username: user.username, email: user.email}, message: 'login successful'});
+    res.status(200).json({token, user: {id: user._id, username: user.username, email: user.email}, message: 'login successful'});
+
 });
 
 const createLogout = asyncHandler(async (req, res) => {
@@ -86,16 +87,15 @@ const createLogout = asyncHandler(async (req, res) => {
 const myProfile = asyncHandler(async (req, res) => {
     const userId = req.user.id; 
     
-
-
     const user = await User.findById(userId);
 
     if (!user) {
         return res.status(404).json({ message: 'User not found' });
     }
 
-    res.status(200).json(user);
+    res.status(200).json({user});
 });
+
 
 
 

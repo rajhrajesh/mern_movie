@@ -1,14 +1,18 @@
 import React, { useState } from 'react'
 import {Link} from 'react-router-dom'
+import { useAuthStore } from '../store/authUser';
 
 function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {login, isLoggingIn} = useAuthStore();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(email, username, password);
+    const credentials = {email, password}
+    console.log("Form data:", credentials)
+    await login(credentials)
   }
 
   return (
@@ -29,7 +33,7 @@ function Login() {
             </div>
             <div>
               <label htmlFor='password' className='text-sm font-medium text-gray-300 block'>Password</label>
-              <input type='text' id='password' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring' placeholder='**********' required onChange={(e) => setPassword(e.target.value)}/>
+              <input type='password' id='password' className='w-full px-3 py-2 mt-1 border border-gray-700 rounded-md bg-transparent text-white focus:outline-none focus:ring' placeholder='**********' required onChange={(e) => setPassword(e.target.value)}/>
             </div>
             <button className='w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700'>Login</button>
           </form>

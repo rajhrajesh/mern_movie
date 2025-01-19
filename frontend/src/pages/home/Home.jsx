@@ -1,14 +1,13 @@
-import React from 'react'
-import HomeScreen from './HomeScreen';
-import AuthScreen from './AuthScreen';
+import React from "react";
+import HomeScreen from "./HomeScreen";
+import AuthScreen from "./AuthScreen";
+import { useAuthStore } from "../../store/authUser";
 
 function Home() {
-  const user = null;
-  return (
-    <div className=''>
-      {user ? <HomeScreen/> : <AuthScreen/>}
-    </div>
-  )
+  const { user } = useAuthStore();
+  console.log("hello", user)
+
+  return <>{user ? <HomeScreen /> : <AuthScreen />}</>
 }
 
-export default Home
+export default Home;

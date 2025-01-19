@@ -13,10 +13,14 @@ function SignIn() {
   const [password, setPassword] = useState('');
 
   const {signin, isSignIn} = useAuthStore();
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    signin({email, username, password}); // Will log the correct email
-  };
+    const credentials = { email, username, password };
+    console.log("Form data:", credentials); // Add this
+    await signin(credentials);
+};
+
 
   return (
     <div className="h-screen w-full hero-bg">

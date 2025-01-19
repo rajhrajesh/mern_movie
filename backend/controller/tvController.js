@@ -2,12 +2,13 @@ const asyncHandler = require('express-async-handler');
 
 const getTrendyTv = asyncHandler(async (req, res) => {
 
-    const data = await fetchFromTMDB('https://api.themoviedb.org/3/trending/tv/day?language=en-US')
+    const data = await fetchFromTMDB("https://api.themoviedb.org/3/trending/tv/day?language=en-US");
 
     const randomMovie = data.results[Math.floor(Math.random() * data.results?.length)];
 
+
     res.status(200).json({
-        randomMovie
+        content: randomMovie
     });
 
     if(!randomMovie){
