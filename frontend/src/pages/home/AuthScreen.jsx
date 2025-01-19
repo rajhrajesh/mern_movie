@@ -10,7 +10,7 @@ function AuthScreen() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    navigate("/signin?email=" + email);
+    navigate("/signin?email=" + email); 
 
   }
 

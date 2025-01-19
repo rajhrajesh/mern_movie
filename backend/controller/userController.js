@@ -43,7 +43,8 @@ const createRegister = asyncHandler(async (req, res) => {
     })
 
     await newUser.save();
-    res.status(201).json({message: 'User registered successfully'});
+    // res.status(201).json({message: 'User registered successfully'});
+    res.status(201).json({success: true, user: {...newUser._doc, password:""}});  // to be changed 
 });
 
 const createLogin = asyncHandler(async (req, res) => {
