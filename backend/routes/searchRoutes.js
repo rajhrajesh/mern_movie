@@ -10,3 +10,4 @@ router.route('/history').get(searchHistory);
 router.route('/history/:id').delete(removeHistory);
 
 module.exports = router;
+ 

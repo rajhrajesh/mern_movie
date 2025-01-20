@@ -40,3 +40,5 @@ app.use('/api/v1/search', authenticateToken, searchRoutes);
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
 });
+
+

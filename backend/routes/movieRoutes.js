@@ -8,4 +8,4 @@ router.route('/:id/details').get(getMovieDetails)
 router.route('/:id/similar').get(getSimilarMovies)
 router.route('/:category').get(getMoviesByCategory);
 
-module.exports = router;
+module.exports = router; 

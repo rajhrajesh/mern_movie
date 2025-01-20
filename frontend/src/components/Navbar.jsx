@@ -8,8 +8,8 @@ function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { user, logout } = useAuthStore();
 
-  const { setContentType } = useContentStore();
-
+  const {setContentType } = useContentStore();
+  // console.log(contentType)
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
