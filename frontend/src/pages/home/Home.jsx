@@ -5,7 +5,6 @@ import { useAuthStore } from "../../store/authUser";
 
 function Home() {
   const { user } = useAuthStore();
-  console.log("hello", user)
 
   return <>{user ? <HomeScreen /> : <AuthScreen />}</>
 }

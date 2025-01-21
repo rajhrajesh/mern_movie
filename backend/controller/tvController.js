@@ -24,7 +24,8 @@ const getTvDetails = asyncHandler(async (req, res) => {
         return res.status(404).json({ message: 'No details found for this TV show.' });
     }
 
-    res.status(200).json(data); 
+    res.status(200).json({ success: true, content: data });
+
 });
 
 const getTvTrailers = asyncHandler(async (req, res) => {
@@ -36,7 +37,8 @@ const getTvTrailers = asyncHandler(async (req, res) => {
         return res.status(404).json({ message: 'No trailers found for this TV show.' });
     }
 
-    res.status(200).json(data.results);
+    res.json({ success: true, trailers: data.results });
+
 });
 
 const getSimilarTv = asyncHandler(async (req, res) => {
@@ -48,7 +50,8 @@ const getSimilarTv = asyncHandler(async (req, res) => {
         return res.status(404).json({ message: 'No similar TV shows found for this show.' });
     }
 
-    res.status(200).json(data.results);
+    res.status(200).json({ success: true, similar: data.results });
+
 });
 
 const getTvsByCategory = asyncHandler(async (req, res) => {

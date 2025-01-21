@@ -54,30 +54,10 @@ export const useAuthStore = create((set) => (
           }
       },
       
-      // myprofile: async () => {
-      //   set({ isCheckIn: true }); // Start loading
-      //   console.log('Fetching profile...');
-
-      //   try {
-      //     const response = await axios.get('/api/v1/users/myprofile'); // Adjust the endpoint
-      //     const user = response.data.user; // Assume `user` is returned from the response
-      //     set({ user, isCheckIn: false }); // Set user and stop loading
-      //     toast.success('Profile fetched successfully');
-      //   } catch (error) {
-      //     console.error(error); // Log errors if any
-
-      //     const errorMessage =
-      //       error.response?.data?.message || 'Failed to fetch profile. Please try again later.';
-      //     toast.error(errorMessage);
-      //     set({ user: null, isCheckIn: false }); // Ensure loading stops even on error
-      //   }
-      // },
-
       myprofile: async () => {
         set({ isCheckIn: true }); // Set loading state to true
         try {
           const response = await axios.get('/api/v1/users/myprofile');
-          console.log("Profile response:", response.data); // Log the response
 
           set({ user: response.data.user, isCheckIn: false }); // Set user from response
         } catch (error) {

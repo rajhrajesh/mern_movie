@@ -22,7 +22,8 @@ const getMovieTrailer = asyncHandler(async (req, res) => {
         return res.status(404).json({ message: 'No trailers found for this movie.' });
     }
 
-    res.status(200).json(data.results);
+    res.json({ success: true, trailers: data.results });
+
 });
 
 const getMovieDetails = asyncHandler(async (req, res) => {
@@ -34,7 +35,8 @@ const getMovieDetails = asyncHandler(async (req, res) => {
         return res.status(404).json({ message: 'No details found for this movie.' });
     }
 
-    res.status(200).json(data);
+    res.status(200).json({ success: true, content: data });
+
 });
 
 const getSimilarMovies = asyncHandler(async (req, res) => {
@@ -46,7 +48,8 @@ const getSimilarMovies = asyncHandler(async (req, res) => {
         return res.status(404).json({ message: 'No similar movies found for this movie.' });
     }
 
-    res.status(200).json(data.results);
+    res.status(200).json({ success: true, similar: data.results });
+
 });
 
 const getMoviesByCategory = asyncHandler(async (req, res) => {

@@ -32,14 +32,14 @@ function Navbar() {
           <Link to="/" className="hover:underline" onClick={() => setContentType("tv")}>
             Tv Shows
           </Link>
-          <Link to="/" className="hover:underline">
+          <Link to="/history" className="hover:underline">
             Search History
           </Link>
         </div>
       </div>
 
       <div className="flex gap-2 items-center z-50">
-        <Link to={"/"}>
+        <Link to={"/search"}>
           <Search className="size-6 cursor-pointer" />
         </Link>
         <img
