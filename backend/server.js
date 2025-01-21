@@ -26,8 +26,8 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use(cors({
-  origin: 'https://mern-movie-4fa2.onrender.com', 
-  credentials: true,
+  origin: 'https://mern-movie-ten.vercel.app/',
+  credentials: true, 
 }))
 
 
