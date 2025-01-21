@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { SMALL_IMG_BASE_URL } from "../utils/contants";
 
+
 const MovieSlider = ({ category }) => {
 	const { contentType } = useContentStore();
 	const [content, setContent] = useState([]);
@@ -18,7 +19,7 @@ const MovieSlider = ({ category }) => {
 
 	useEffect(() => {
 		const getContent = async () => {
-			const res = await axios.get(`/api/v1/${contentType}/${category}`);
+			const res = await axios.get('https://mern-movie-4fa2.onrender.com/api/v1/${contentType}/${category}');
 			setContent(res.data.content);
 		};
 

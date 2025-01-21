@@ -26,8 +26,8 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use(cors({
-  origin: 'http://localhost:5173', // Allow requests from your frontend
-  credentials: true, // Allow cookies and authentication headers
+  origin: 'https://mern-movie-4fa2.onrender.com', 
+  credentials: true,
 }))
 
 

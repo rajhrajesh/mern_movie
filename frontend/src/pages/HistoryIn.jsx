@@ -5,7 +5,6 @@ import { SMALL_IMG_BASE_URL } from '../utils/contants';
 import { Trash } from 'lucide-react';
 import toast from 'react-hot-toast';
 
-
 function formatDate(dateString) {
 	const date = new Date(dateString);
 
@@ -25,7 +24,7 @@ function HistoryIn() {
     useEffect(() => {
 		const getSearchHistory = async () => {
 			try {
-				const res = await axios.get(`/api/v1/search/history`);
+				const res = await axios.get('https://mern-movie-4fa2.onrender.com/api/v1/search/history');
 				setSearchHistory(res.data.content);
 			} catch (error) {
 				setSearchHistory([]);
@@ -38,7 +37,7 @@ function HistoryIn() {
 
     const handleDelete = async (entry) => {
 		try {
-			await axios.delete(`/api/v1/search/history/${entry.id}`);
+			await axios.delete('https://mern-movie-4fa2.onrender.com/api/v1/search/history/${entry.id}');
 			setSearchHistory(searchHistory.filter((item) => item.id !== entry.id));
 		} catch (error) {
 			toast.error("Failed to delete search item");
