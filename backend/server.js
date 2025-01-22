@@ -13,7 +13,7 @@ const searchRoutes = require('./routes/searchRoutes');
 const connectDatabase = require('./config/dbConnection');
 
 // Middleware to authenticate token before accessing protected routes
-const authenticateToken = require('./middleware/authenticateToken ');
+const authenticateToken = require('./middleware/authenticateToken');
 
 dotenv.config();
 connectDatabase();
