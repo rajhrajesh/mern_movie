@@ -19,7 +19,7 @@ const MovieSlider = ({ category }) => {
 
 	useEffect(() => {
 		const getContent = async () => {
-			const res = await axios.get(`https://mern-movie-4fa2.onrender.com/api/v1/${contentType}/${category}`);
+			const res = await axios.get(`/api/v1/${contentType}/${category}`);
 			setContent(res.data.content);
 		};
 

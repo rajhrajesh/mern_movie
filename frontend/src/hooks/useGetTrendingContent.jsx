@@ -8,7 +8,7 @@ const useGetTrendingContent = () => {
 
 	useEffect(() => {
 		const getTrendingContent = async () => {
-			const res = await axios.get(`https://mern-movie-4fa2.onrender.com/api/v1/${contentType}/trending`);
+			const res = await axios.get(`/api/v1/${contentType}/trending`);
 			setTrendingContent(res.data.content);
 		};
 

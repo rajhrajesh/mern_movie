@@ -11,7 +11,7 @@ export const useAuthStore = create((set) => (
         signin: async (credentials) => {
           set({ isSignIn: true });
             try {
-              const response = await axios.post('https://mern-movie-4fa2.onrender.com/api/v1/users/register', credentials);
+              const response = await axios.post('/api/v1/users/register', credentials, {withCredentials: true});
               const user = response.data.user; // Access the user from response.data
               set({ user, isSignIn: false });
               toast.success(`Welcome, ${user.username}!`); // Display a success message with the username
@@ -26,7 +26,7 @@ export const useAuthStore = create((set) => (
         login: async (credentials) => {
           set({isLoggingIn: true})
           try {
-              const response = await axios.post('https://mern-movie-4fa2.onrender.com/api/v1/users/login', credentials, {withCredentials: true});
+              const response = await axios.post('/api/v1/users/login', credentials, {withCredentials: true});
               const { token, user } = response.data;
               localStorage.setItem('authToken', token);
               set({ user: user, isLoggingIn: false });
@@ -44,7 +44,7 @@ export const useAuthStore = create((set) => (
         logout: async () => {
           
           try {
-              await axios.post('https://mern-movie-4fa2.onrender.com/api/v1/users/logout');
+              await axios.post('/api/v1/users/logout');
               localStorage.removeItem('authToken'); // Clear local storage
               
               toast.success('Logout successful');
@@ -57,7 +57,7 @@ export const useAuthStore = create((set) => (
       myprofile: async () => {
         set({ isCheckIn: true }); // Set loading state to true
         try {
-          const response = await axios.get('https://mern-movie-4fa2.onrender.com/api/v1/users/myprofile');
+          const response = await axios.get('/api/v1/users/myprofile');
 
           set({ user: response.data.user, isCheckIn: false }); // Set user from response
         } catch (error) {
