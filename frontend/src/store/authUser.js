@@ -26,7 +26,7 @@ export const useAuthStore = create((set) => (
         login: async (credentials) => {
           set({isLoggingIn: true})
           try {
-              const response = await axios.post('https://mern-movie-4fa2.onrender.com/api/v1/users/login', credentials);
+              const response = await axios.post('https://mern-movie-4fa2.onrender.com/api/v1/users/login', credentials, {withCredentials: true});
               const { token, user } = response.data;
               localStorage.setItem('authToken', token);
               set({ user: user, isLoggingIn: false });

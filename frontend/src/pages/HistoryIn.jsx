@@ -37,7 +37,7 @@ function HistoryIn() {
 
     const handleDelete = async (entry) => {
 		try {
-			await axios.delete('https://mern-movie-4fa2.onrender.com/api/v1/search/history/${entry.id}');
+			await axios.delete(`https://mern-movie-4fa2.onrender.com/api/v1/search/history/${entry.id}`);
 			setSearchHistory(searchHistory.filter((item) => item.id !== entry.id));
 		} catch (error) {
 			toast.error("Failed to delete search item");
