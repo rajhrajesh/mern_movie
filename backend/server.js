@@ -25,14 +25,9 @@ app.use(cookieParser());
 
 app.use(express.json());
 
-const allowedOrigin =
-  process.env.NODE_ENV === 'production'
-    ? process.env.PROD_ORIGIN 
-    : process.env.DEV_ORIGIN; 
-
 app.use(
   cors({
-    origin: allowedOrigin, 
+    origin: process.env.DEV_ORIGIN, 
     credentials: true,
   })
 );

@@ -2,11 +2,6 @@ import axios from 'axios';
 import toast from 'react-hot-toast';
 import {create} from 'zustand';
 
-const api = axios.create({
-  baseURL: process.env.NODE_ENV === 'production' ? process.env.REACT_APP_BASE_URL : process.envREACT_APP_DEV_URL,
-  withCredentials: true,
-})
-
 export const useAuthStore = create((set) => (
     {
         user: null,
@@ -16,7 +11,7 @@ export const useAuthStore = create((set) => (
         signin: async (credentials) => {
           set({ isSignIn: true });
             try {
-              const response = await api.post('/api/v1/users/register', credentials, {withCredentials: true});
+              const response = await axios.post('/api/v1/users/register', credentials, {withCredentials: true});
               const user = response.data.user; // Access the user from response.data
               set({ user, isSignIn: false });
               toast.success(`Welcome, ${user.username}!`); // Display a success message with the username
@@ -31,7 +26,7 @@ export const useAuthStore = create((set) => (
         login: async (credentials) => {
           set({isLoggingIn: true})
           try {
-              const response = await api.post('/api/v1/users/login', credentials, {withCredentials: true});
+              const response = await axios.post('/api/v1/users/login', credentials, {withCredentials: true});
               const { token, user } = response.data;
               localStorage.setItem('authToken', token);
               set({ user: user, isLoggingIn: false });
@@ -49,7 +44,7 @@ export const useAuthStore = create((set) => (
         logout: async () => {
           
           try {
-              await api.post('/api/v1/users/logout');
+              await axios.post('/api/v1/users/logout');
               localStorage.removeItem('authToken'); // Clear local storage
               
               toast.success('Logout successful');
@@ -62,7 +57,7 @@ export const useAuthStore = create((set) => (
       myprofile: async () => {
         set({ isCheckIn: true }); // Set loading state to true
         try {
-          const response = await api.get('/api/v1/users/myprofile');
+          const response = await axios.get('/api/v1/users/myprofile');
 
           set({ user: response.data.user, isCheckIn: false }); // Set user from response
         } catch (error) {
