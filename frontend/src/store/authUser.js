@@ -11,7 +11,7 @@ export const useAuthStore = create((set) => (
         signin: async (credentials) => {
           set({ isSignIn: true });
             try {
-              const response = await axios.post('/api/v1/users/register', credentials, {withCredentials: true});
+              const response = await axios.post('http://localhost:3001/api/v1/users/register', credentials, {withCredentials: true});
               const user = response.data.user; // Access the user from response.data
               set({ user, isSignIn: false });
               toast.success(`Welcome, ${user.username}!`); // Display a success message with the username
@@ -26,7 +26,7 @@ export const useAuthStore = create((set) => (
         login: async (credentials) => {
           set({isLoggingIn: true})
           try {
-              const response = await axios.post('/api/v1/users/login', credentials, {withCredentials: true});
+              const response = await axios.post('http://localhost:3001/api/v1/users/login', credentials, {withCredentials: true});
               const { token, user } = response.data;
               localStorage.setItem('authToken', token);
               set({ user: user, isLoggingIn: false });
