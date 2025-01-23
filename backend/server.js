@@ -25,9 +25,14 @@ app.use(cookieParser());
 
 app.use(express.json());
 
+const allowedOrigin =
+  process.env.NODE_ENV === 'production'
+    ? process.env.PROD_ORIGIN 
+    : process.env.DEV_ORIGIN; 
+
 app.use(
   cors({
-    origin: 'https://mern-movie-ten.vercel.app/', 
+    origin: allowedOrigin, 
     credentials: true,
   })
 );

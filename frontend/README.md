@@ -10,6 +10,9 @@ Currently, two official plugins are available:
 ## live url backend
 https://mern-movie-netflix-junior.onrender.com
 
+## live url fronend
+REACT_APP_API_BASE_URL=https://mern-movie-netflix-junior.onrender.com/
+
 ## env sample
 PORT = 3001
 
@@ -19,6 +22,13 @@ MONGODB_URL = mongodb+srv://penurajeshitsd:rAjh*Rajesh2201@cluster0.mekth.mongod
 
 NODE_ENV === production
 
+NODE_ENV=development
+
+DEV_ORIGIN=http://localhost:3000
+
+PROD_ORIGIN=https://mern-movie-ten.vercel.app
+
 VS_MONGODB = mongodb+srv://penurajeshitsd:rAjh*Rajesh2201@cluster0.mekth.mongodb.net/netflix_movies
 
 TMDB_API_KEY = eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJiMmYyMGJkOGUxMjkwNDljYzNkMTI0ODM3YjQ1M2Y1NSIsIm5iZiI6MTcyODI3MzQwOC41MzcsInN1YiI6IjY3MDM1YzAwYjRlM2QxYTQ4NDczZDZiZCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.e_HAQQRRkC0Cbj-gAri_d0vDmQAlXc4OOJhtYHOby6A
+

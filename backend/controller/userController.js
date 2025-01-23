@@ -80,9 +80,9 @@ const createLogin = asyncHandler(async (req, res) => {
 
     res.cookie('token', token, {
         expires: new Date(Date.now() + 86400000), // 1 day expiry
-        // httpOnly: true,
-        // secure: process.env.NODE_ENV === "production",
-        // sameSite: 'strict',
+        httpOnly: true,
+        secure: process.env.NODE_ENV === "production",
+        sameSite: 'strict',
     });
 
     const userResponse = {
