@@ -11,7 +11,7 @@ export const useAuthStore = create((set) => (
         signin: async (credentials) => {
           set({ isSignIn: true });
             try {
-              const response = await axios.post('https://mern-movie-netflix-junior.onrender.com/api/v1/users/register', credentials, {withCredentials: true});
+              const response = await axios.post('https://mern-movie-netflix-junior.onrender.com/api/v1/users/register', credentials);
               const user = response.data.user; // Access the user from response.data
               set({ user, isSignIn: false });
               toast.success(`Welcome, ${user.username}!`); // Display a success message with the username
@@ -26,7 +26,8 @@ export const useAuthStore = create((set) => (
         login: async (credentials) => {
           set({isLoggingIn: true})
           try {
-              const response = await axios.post('https://mern-movie-netflix-junior.onrender.com/api/v1/users/login', credentials, {withCredentials: true});
+              const response = await axios.post('https://mern-movie-backend-rajesh.onrender.com/api/v1/users/login', credentials);
+
               const { token, user } = response.data;
               localStorage.setItem('authToken', token);
               set({ user: user, isLoggingIn: false });
